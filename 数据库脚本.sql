@@ -1,22 +1,30 @@
 /*
-Navicat MySQL Data Transfer
-
-Source Server         : MySQL
-Source Server Version : 50505
-Source Host           : localhost:3306
-Source Database       : epindb
-
-Target Server Type    : MYSQL
-Target Server Version : 50505
-File Encoding         : 65001
-
-Date: 2019-10-15 19:57:10
+MySQL Backup
+Source Server Version: 5.5.5
+Source Database: epindb
+Date: 2019/10/10 11:52:45
 */
 
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
--- Table structure for `cv_msg`
+--  Table structure for `company`
+-- ----------------------------
+DROP TABLE IF EXISTS `company`;
+CREATE TABLE `company` (
+  `id` int(50) NOT NULL AUTO_INCREMENT,
+  `username` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `companyname` varchar(50) DEFAULT NULL,
+  `addr` varchar(50) DEFAULT NULL,
+  `msg` text DEFAULT NULL COMMENT '公司简介',
+  `email` varchar(50) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `companyname` (`companyname`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='公司信息';
+
+-- ----------------------------
+--  Table structure for `cv_msg`
 -- ----------------------------
 DROP TABLE IF EXISTS `cv_msg`;
 CREATE TABLE `cv_msg` (
